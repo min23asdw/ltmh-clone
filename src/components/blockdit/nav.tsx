@@ -16,10 +16,16 @@ import { useState } from "react";
 export default function Nav() {
   const [selectCatId, setSelectCatId] = useState<number>(0);
 
-  const Cat = [
-    { icon: [<CompressIcon />, <CompressSelectIcon />], name: "compress" },
-    { icon: [<InvestIcon />, <InvestIcon />], name: "invest" },
-    { icon: [<FaqIcon />, <FaqSelectIcon />], name: "faq" },
+  const icons = {
+    compress: { normal: <CompressIcon />, selected: <CompressSelectIcon /> },
+    invest: { normal: <InvestIcon />, selected: <InvestIcon /> },
+    faq: { normal: <FaqIcon />, selected: <FaqSelectIcon /> },
+  };
+
+  const categories = [
+    { name: "compress", icon: icons.compress },
+    { name: "invest", icon: icons.invest },
+    { name: "faq", icon: icons.faq },
   ];
 
   return (
@@ -49,23 +55,19 @@ export default function Nav() {
 
       <div className="  flex flex-row justify-evenly  w-full gap-2">
         <div className="   flex flex-row gap-14 justify-center my-1">
-          {Cat.map((item, index) => (
-            <button onClick={() => setSelectCatId(index)} key={item.name}>
-              {selectCatId == index ? (
-                <div
-                  key={index}
-                  className="  px-1 py-2 transition-all duration-300  cursor-pointer   stroke-blue-500 text-blue-500   "
-                >
-                  {item.icon[1]}
-                </div>
-              ) : (
-                <div
-                  key={index}
-                  className="  px-1 py-2 transition-all duration-300  cursor-pointer stroke-[#0000] text-black  "
-                >
-                  {item.icon[0]}
-                </div>
-              )}
+          {categories.map((category, index) => (
+            <button key={index} onClick={() => setSelectCatId(index)}>
+              <div
+                className={`px-1 py-2 transition-all duration-300 cursor-pointer ${
+                  selectCatId === index
+                    ? "stroke-blue-500 text-blue-500"
+                    : "stroke-[#0000] text-black"
+                }`}
+              >
+                {selectCatId === index
+                  ? category.icon.selected
+                  : category.icon.normal}
+              </div>
             </button>
           ))}
         </div>
