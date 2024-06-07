@@ -9,7 +9,6 @@ export default function ItemCard(props: porp) {
   return (
     // <div>
     <div
-      key={index}
       className="bg-white w-full rounded-default  inline-block  my-3 "
       style={{ height: height }}
     >

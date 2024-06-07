@@ -17,7 +17,7 @@ export default function Home() {
 
           <div className="gap-4 columns-2 xl:columns-3">
             {Array.from({ length: repeatCount }).map((_, index) => (
-              <ItemCard index={index} height={getRandomHeight()} />
+              <ItemCard key={index} index={index} height={getRandomHeight()} />
             ))}
           </div>
         </div>
