@@ -15,6 +15,8 @@ const config: Config = {
     },
     borderRadius: {
       default: '.75rem',
+      xxl:'1.5rem',
+      input: '1rem',
     },
     extend: {
       backgroundImage: {

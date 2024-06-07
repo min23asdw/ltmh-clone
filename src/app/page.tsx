@@ -1,4 +1,5 @@
 import ItemCard from "@/components/blockdit/card";
+import CatalogSection from "@/components/blockdit/catalogSection";
 import Nav from "@/components/blockdit/nav";
 import React from "react";
 
@@ -12,16 +13,11 @@ export default function Home() {
 
       <section className="mx-auto px-4 ">
         <div className="mx-auto w-[450px] md:w-[550px]  xl:w-[800px] ">
-          {/* <div className="grid grid-cols-2 xl:grid-cols-3   gap-4"> */}
-          <div className="gap-8 columns-2 xl:columns-3">
+          <CatalogSection />
+
+          <div className="gap-4 columns-2 xl:columns-3">
             {Array.from({ length: repeatCount }).map((_, index) => (
-             
               <ItemCard index={index} height={getRandomHeight()} />
-
-                 
-            
-
-            
             ))}
           </div>
         </div>
